@@ -1,0 +1,11 @@
+#2 Palindrome 
+
+
+def palindrome?(string)
+	
+    string.gsub!(/[\W\d]/,"")
+	string.downcase==string.downcase.reverse	
+end
+
+p palindrome?("A man, a plan, a canal: Panama.")
+

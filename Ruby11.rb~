@@ -1,0 +1,35 @@
+class CartesianProduct
+  include Enumerable
+
+  def initialize(a,b)
+    @a = a
+    @b = b
+  end
+
+  def each
+    return to_enum unless block_given? 
+    @a.each do |i| 
+      @b.each { |j| yield [i,j] } #yeilds the results (elements i, j) in a, b
+    end
+  end
+end
+
+c = CartesianProduct.new([:a,:b], [4,5])
+
+c.each { |elt| puts elt.inspect }
+
+# [:a, 4]
+
+# [:a, 5]
+
+# [:b, 4]
+
+# [:b, 5]
+
+c = CartesianProduct.new([:a,:b], [])
+
+c.each { |elt| puts elt.inspect }
+
+#worked with Erik K
+
+

@@ -1,0 +1,25 @@
+class Numeric
+
+ @@currencies = {'yen' => 0.013, 'euro' => 1.35, 'rupee' => 0.019, 'dollar' =>1.0}
+
+ def method_missing(method_id) #method id will pass the 
+
+   singular_currency = method_id.to_s.gsub( /s$/, '')
+
+   if @@currencies.has_key?(singular_currency)
+     self * @@currencies[singular_currency]
+   else
+     super
+   end #ends if else
+
+ end #ends method missing
+def in(currency)
+	self/@@currencies[currency.to_s.gsub(/s$/, '')]
+end
+
+end #ends class
+
+p 3000.dollars.in(:euros)
+p 10000.euros.in(:dollars)
+
+#worked with Alec T and Erik K

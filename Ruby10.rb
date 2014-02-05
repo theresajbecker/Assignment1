@@ -1,0 +1,28 @@
+module Palindrome
+	String.class_eval do
+	def palindrome?
+		self.gsub!(/[\W\d]/,"") 
+		self.downcase==self.downcase.reverse 
+	end
+	end 
+end
+
+
+p "poop".palindrome?
+
+
+module Palindrome
+	Array.class_eval do
+	def palindrome?
+		#self.gsub!(/[\W\d]/,"") 
+		self==self.reverse 
+	end
+	end 
+end
+
+
+p [1,2,3,5,3].palindrome?
+
+#worked with Mr. Erik Kierstead 
+
+

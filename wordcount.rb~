@@ -1,0 +1,21 @@
+def count_words(string)
+
+    # use regex to get rid of spaces and nonword characters, then populate a hash with key and key.count
+	cHash = {} 
+  	words = string.downcase.gsub(/[^a-zA-Z]/," ").split(" ") #splits words
+	words.each do |i|
+		if(cHash.has_key?(i))
+			cHash[i] +=1
+		else cHash = cHash.merge(i =>1)
+	end	
+	end
+	return cHash
+end
+
+p count_words("what do you think about this? and this? and this? what what what?")
+	
+	
+
+
+
+

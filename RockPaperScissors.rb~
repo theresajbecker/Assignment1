@@ -1,0 +1,48 @@
+class WrongNumberOfPlayersError <  StandardError ; end
+class NoSuchStrategyError <  StandardError ; end
+
+
+def rps_game_winner(game)
+
+	raise WrongNumberOfPlayersError unless game.length == 2
+	raise NoSuchStrategyError unless game[0][1].downcase.scan(/[rsp]/) && game[1][1].downcase.scan(/[rsp]/)
+	
+	
+	gameHash = {"rr"=> game[0], "s"=> game[0],"pp"=> game[0],"rs"=> game[0],"sp"=> game[0],"pr"=> game[0],
+			"sr"=> game[1], "sp"=> game[0], "rp"=> game[0]}
+
+	gameString = game[0][1].downcase + game[1][1].downcase
+	
+	return gameHash[gameString]
+	
+	
+end
+ 
+game01 = [ ["Armando", "s"], ["Dave", "r"]]
+game02 = [["Theresa", "R"]]
+
+
+p rps_game_winner(game01)
+
+
+
+=begin
+words.each do |i|
+		if(cHash.has_key?(i))
+			cHash[i] +=1
+		else cHash = cHash.merge(i =>1)
+
+In a game of rock-paper-scissors (RPS), each player chooses to play Rock (R), Paper (P), or Scissors (S). The rules are: R beats S; S beats P; and P beats R. We will encode a rock-paper-scissors game as a list, where the elements are themselves 2-element lists that encode a player's name and a player's selected move, as shown below:
+
+[ ["Armando", "P"], ["Dave", "S"] ] # Dave would win since S > P
+
+(4a) : Write a method rps_game_winner that takes a two-element list and behaves as follows:
+
+If the number of players is not equal to 2, raise WrongNumberOfPlayersError.
+If either player's strategy is something other than "R", "P" or "S" (case-insensitive), raiseNoSuchStrategyError.
+Otherwise, return the name and move of the winning player. If both players play the same move, the first player is the winner.
+We'll get you started:
+=end
+
+
+ 

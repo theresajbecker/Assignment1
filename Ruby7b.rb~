@@ -1,0 +1,27 @@
+class JellyBean < Dessert
+
+    def initialize(name, calories, flavor)
+        super(name, calories)
+	@flavor = flavor
+
+    end
+	def flavor # instance getter method for flavor
+	@flavor
+	end
+	def flavor=(new_flavor)
+	@flavor=new_flavor
+	end
+	
+    def delicious?
+	if (defined? @flavor != nil)
+        return @flavor != 'black licorice'
+	else 
+	return true
+	end
+
+    end
+
+end
+
+test = JellyBean.new("pudding", 250, "vanilla")
+puts "#{test.name} is yucky. Is it healthy? #{test.delicious?}" 

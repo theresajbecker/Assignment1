@@ -1,0 +1,14 @@
+
+module Palindrome
+	Array.class_eval do
+	def palindrome?
+		#self.gsub!(/[\W\d]/,"") 
+		self==self.reverse 
+	end
+	end 
+end
+
+
+p [1,3,4,4,3,1].palindrome?
+
+
